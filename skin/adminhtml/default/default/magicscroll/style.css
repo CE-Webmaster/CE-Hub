@@ -1,0 +1,30 @@
+.magicscrollEditForm td.label {
+    width: 240px !important;
+}
+.magicscrollEditForm td.label label {
+    width: 225px !important;
+}
+.magicscrollEditForm td.value {
+    min-width: 475px !important;
+    width: auto !important;
+}
+.magicscrollEditForm td.value .use-default {
+    float: right;
+}
+.fieldsetOpen {
+    background: url("../images/entry_edit_head_arrow_up.gif") no-repeat scroll 100% 50% transparent !important;
+}
+.fieldsetClose {
+    background: url("../images/entry_edit_head_arrow_down.gif") no-repeat scroll 100% 50% transparent !important;
+}
+#customslideshowblock_gallery_content .data .preview .cell-label input.input-text {
+    width: 98% !important;
+}
+#customslideshowblock_gallery_content .data .preview .cell-description textarea.textarea {
+    width: 98% !important;
+    height: 94px;
+    min-height: 94px !important;
+}
+#customslideshowblock_gallery_content .data .preview .cell-link input.input-text {
+    width: 98% !important;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Clevelandequipment_CommerceBugProduction>
+			<version>0.1.0</version>
+		</Clevelandequipment_CommerceBugProduction>
+	</modules>
+	<global>
+		<models>
+		    <commercebug>
+                <rewrite>
+                    <ison>Clevelandequipment_CommerceBugProduction_Model_Ison</ison>
+                </rewrite>
+		    </commercebug>
+			<clevelandequipment_commercebugproduction>
+				<class>Clevelandequipment_CommerceBugProduction_Model</class>
+			</clevelandequipment_commercebugproduction>
+		</models>
+	</global>
+</config>

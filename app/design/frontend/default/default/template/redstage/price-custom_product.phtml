@@ -1,0 +1,8 @@
+<?php $_product = $this->getProduct();
+     $_id = $_product->getId();
+
+ $attributeValue = Mage::getModel('catalog/product')->load($_id)->getRedstageCallforprice();
+
+
+?>
+<strong><?php echo nl2br($attributeValue); ?></strong>

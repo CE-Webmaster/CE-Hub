@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This module gives the store owner a method of redirecting old
+ * product URLs (for example, after moving from another platform
+ * to Magento).
+ *
+ * By Added Bytes
+ * http://www.addedbytes.com
+ */
+-->
+<config>
+    <modules>
+        <Addedbytes_Massredirect>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Addedbytes_Massredirect>
+    </modules>
+</config>

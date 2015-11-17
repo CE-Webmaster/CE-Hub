@@ -1,0 +1,20 @@
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('wholesale')->__('Discount Categories') ?></h4>
+    </div>
+    <fieldset id="grop_fields">
+        <div id="product-categories" class="tree">
+			<div id="expand_collapse">
+				<?php echo $this->getExpandCollapse(); ?>
+				<?php echo $this->addScript(); ?>
+			</div>
+			<?php
+				$rootcatId= Mage::app()->getStore()->getRootCategoryId();
+				$categories = Mage::getModel('catalog/category')->getCategories(1);
+				$wholesaleid = $this->getRequest()->getParam('id');
+				echo $this->getCategoriesHtml($categories,1,1,$wholesaleid);
+			?>
+        </div>
+    </fieldset>
+</div>

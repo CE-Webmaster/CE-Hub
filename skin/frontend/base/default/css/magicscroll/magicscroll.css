@@ -1,0 +1,181 @@
+/*
+
+
+   Magic Scroll v1.0.29 
+   Copyright 2014 Magic Toolbox
+   Buy a license: www.magictoolbox.com/magicscroll/
+   License agreement: http://www.magictoolbox.com/license/
+
+
+*/
+.MagicScroll {
+    display: none;
+    border: none;
+    z-index: 1;
+}
+
+.MagicScrollItem {
+    text-align: center;
+}
+
+.MagicScrollItem img {
+    display: block;
+    margin: 0 auto;
+}
+
+.MagicScrollArrows {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: url(/skin/frontend/base/default/css/magicscroll/graphics/arrows.png);
+    padding: 0px !important;
+}
+
+.MagicScrollArrowTop {
+    background-position: 24px 0;
+}
+
+.MagicScrollArrowRight {
+    background-position: 0 0;
+}
+
+.MagicScrollArrowBottom {
+    background-position: 24px 24px;
+}
+
+.MagicScrollArrowLeft {
+    background-position: 0 24px;
+}
+
+.MagicScrollSliderWrapper {
+    background: #f3f3f3;
+    border-top: 1px solid #e1e1e1;
+}
+
+.MagicScrollSlider {
+    background: #f7f7f7;
+    border:1px outset #e1e1e1;
+    border-style: solid outset outset solid;
+}
+
+.MagicScrollSliderShadow {
+    background: #dfdfdf;
+    border:1px solid #dfdfdf;
+}
+
+/* Style for scroll with borders and background */
+.MagicScroll.msborder {
+    background:#efefef;
+    border:1px solid #e1e1e1;
+}
+.MagicScroll.msborder .MagicScrollItem {
+    background:#fff;
+    border-right:1px solid #efefef;
+    padding: 6px 0;
+}
+.MagicScroll.msborder.vertical .MagicScrollItem {
+    border-right:none;
+    border-bottom:1px solid #efefef;
+}
+.MagicScroll.msborder .MagicScrollArrows {
+    width: 36px;
+    height: 36px;
+    background: url(/skin/frontend/base/default/css/magicscroll/graphics/arrows-padding.png);
+}
+
+.MagicScroll.msborder .MagicScrollArrowTop {
+    background-position: 36px 0;
+}
+.MagicScroll.msborder .MagicScrollArrowBottom {
+    background-position: 36px 36px;
+}
+.MagicScroll.msborder .MagicScrollArrowLeft {
+    background-position: 0 36px;
+}
+
+.MagicScroll.mstext .MagicScrollItem {
+    text-align: left;
+    line-height:1.2;
+    padding:9px;
+    border:none;
+}
+
+/* Contaner with main image and selectors container */
+div.MagicToolboxContainer {
+    text-align: center;
+}
+
+/* Main image styles */
+div.MagicToolboxContainer a {
+    margin: 0 auto;
+}
+
+/* Container with selectors*/
+div.MagicToolboxSelectorsContainer {
+    clear: both;
+}
+
+/* Selectors styles */
+div.MagicToolboxSelectorsContainer a {
+    display: inline-block;
+    margin: 4px 1px;
+}
+
+div.MagicScroll {
+    margin: auto !important;
+}
+
+div.MagicToolboxMessage {
+    text-align: center;
+}
+
+
+.MagicToolboxMainContainer {
+    max-width: 100%;
+}
+/* selectors-left */
+div.MagicToolboxContainer.selectorsLeft .MagicToolboxMainContainer {
+    float: left;
+}
+div.MagicToolboxContainer.selectorsLeft .MagicToolboxSelectorsContainer {
+    float: left;
+}
+div.MagicToolboxContainer.selectorsLeft .MagicToolboxSelectorsContainer img {
+    max-width: 100%;
+}
+/* selectors-right */
+div.MagicToolboxContainer.selectorsRight .MagicToolboxMainContainer {
+    float: right;
+}
+div.MagicToolboxContainer.selectorsRight .MagicToolboxSelectorsContainer {
+    float: right;
+}
+div.MagicToolboxContainer.selectorsRight .MagicToolboxSelectorsContainer img {
+    max-width: 100%;
+}
+
+.MagicScrollItem a {
+    /* NOTE: magicscroll makes the image smaller if there is a margin */
+    margin: 0 !important;
+}
+div.MagicToolboxSelectorsContainer {
+    clear: none;
+}
+.product-view .product-img-box .more-views ul {
+    margin-left: 0px;
+}
+.products-list .MagicToolboxContainer {
+    /* for List View */
+    float: left;
+}
+.hidden-selector {
+    display: none !important;
+}
+.ignore-magento-css {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+.product-img-box {
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <nuntius_campaign_user>
+        <update handle="page_empty" />
+        <reference name="content">
+            <block type="core/text" name="nuntius.campaign.view"  />
+        </reference>
+    </nuntius_campaign_user>
+</layout>

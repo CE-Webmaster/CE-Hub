@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="root">
+		 <checkout_cart_index>
+        <reference name="content">
+            <remove name="checkout.cart.shipping"/>
+        </reference>
+		 <reference name="checkout.cart.form.before">
+      <block type="cms/block" name="promotion_banner_cart" after="checkout.cart.top_methods" >
+        <action method="setBlockId"><block_id>checkout_message</block_id></action>
+      </block>
+    </reference>
+    </checkout_cart_index>		
+        </reference>
+    </default>
+ 
+   
+ 
+</layout>

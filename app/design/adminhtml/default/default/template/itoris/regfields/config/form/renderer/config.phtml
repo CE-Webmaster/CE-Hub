@@ -1,0 +1,157 @@
+<?php
+/**
+ * ITORIS
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the ITORIS's Magento Extensions License Agreement
+ * which is available through the world-wide-web at this URL:
+ * http://www.itoris.com/magento-extensions-license.html
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to sales@itoris.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extensions to newer
+ * versions in the future. If you wish to customize the extension for your
+ * needs please refer to the license agreement or contact sales@itoris.com for more information.
+ *
+ * @category   ITORIS
+ * @package    ITORIS_REGFIELDS
+ * @copyright  Copyright (c) 2012 ITORIS INC. (http://www.itoris.com)
+ * @license    http://www.itoris.com/magento-extensions-license.html  Commercial License
+ */
+?>
+<?php
+	$_element = $this->getElement();
+	/** form declared in Itoris_RegFields_Block_Admin_Config_Edit_Form */
+	/** @var $form Varien_Data_Form */
+	$form = $_element->getForm();
+	$useFor = $form->getUseWebsite() ? $this->__('Use Website') : ($form->getUseDefault() ? $this->__('Use Default') : null);
+?>
+<?php if ($_element->getFieldsetContainerId()): ?>
+<div id="<?php echo $_element->getFieldsetContainerId(); ?>">
+<?php endif; ?>
+<?php if ($_element->getLegend()): ?>
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">
+		<?php echo $_element->getLegend() ?>
+		<?php if ($useFor): ?>
+			<input type="checkbox" style="margin-left:100px;margin-right: 5px;" <?php if ($_element->getUseParentValue()):?> checked="checked" <?php endif; ?>
+				   onclick="if (this.checked) {
+				   		$('field-manager-area').hide();
+				   		$('add-new-section').hide();
+				   		$('reset-form-to-default').hide();
+				   		$('form_active_value').disabled = true;
+				   } else {
+				   		$('field-manager-area').show();
+				   		$('add-new-section').show();
+				   		$('reset-form-to-default').show();
+				   		$('form_active_value').disabled = false;
+				   }"
+			/>
+			<span><?php echo $useFor ?></span>
+		<?php endif; ?>
+		<input id="form_active_value" type="hidden" name="settings[form_active][value]" value="1" <?php if ($_element->getUseParentValue()):?> disabled="disabled" <?php endif; ?>/>
+	</h4>
+    <div class="form-buttons"><?php echo $_element->getHeaderBar() ?>
+	<button id="reset-form-to-default" class="scalable" type="button" <?php if ($useFor && $_element->getUseParentValue()):?> style="display:none;" <?php endif; ?>><span><?php echo $this->__('Reset Form to Default') ?></span></button>
+	<button id="add-new-section" class="scalable add" type="button" <?php if ($useFor && $_element->getUseParentValue()):?> style="display:none;" <?php endif; ?>><span><?php echo $this->__('Add New Section') ?></span></button>
+	</div>
+</div>
+<?php endif; ?>
+    <div class="fieldset <?php echo $_element->getClass() ?>" id="<?php echo $_element->getHtmlId() ?>">
+    	<div class="hor-scroll" id="field-manager-area" <?php if ($useFor && $_element->getUseParentValue()):?> style="display:none;" <?php endif; ?>>
+    	</div>
+    <?php echo $_element->getSubFieldsetHtml() ?>
+    </div>
+<?php if ($_element->getFieldsetContainerId()): ?>
+</div>
+<?php endif; ?>
+<script type="text/javascript">
+	<?php
+		$translates = array(
+			'sectionLabel'    => $this->__('Section Label'),
+			'moveDown'        => $this->__('Move Down'),
+			'moveUp'          => $this->__('Move Up'),
+			'remove'          => $this->__('Remove'),
+			'removeLCase'     => $this->__('remove'),
+			'fieldConfig'     => $this->__('Field Configuration'),
+			'removeSection'   => $this->__('Do you really want to remove this section?'),
+			'columns'         => $this->__('Columns'),
+			'cols'            => $this->__('Columns'),
+			'rows'            => $this->__('Rows'),
+			'label'           => $this->__('Label'),
+			'fieldType'       => $this->__('Field Type'),
+			'input_box'       => $this->__('Input Box'),
+			'password_box'    => $this->__('Password Box'),
+			'checkbox'        => $this->__('Checkbox(es)'),
+			'radio'           => $this->__('Radio(s)'),
+			'select_box'      => $this->__('Select Box'),
+			'list_box'        => $this->__('List Box'),
+			'multiselect_box' => $this->__('Multi-select List Box'),
+			'textarea'        => $this->__('Textarea'),
+			'file'            => $this->__('File Upload'),
+			'static_text'     => $this->__('Static Text'),
+			'captcha'         => $this->__('Captcha'),
+			'required'        => $this->__('Required'),
+			'yes'             => $this->__('Yes'),
+			'no'              => $this->__('No'),
+			'please_select'   => $this->__('--Please select--'),
+			'email'           => $this->__('Email'),
+			'name'            => $this->__('Name'),
+			'number'          => $this->__('Number'),
+			'money'           => $this->__('Money'),
+			'phone'           => $this->__('Phone'),
+			'validation'      => $this->__('Validation'),
+			'default_value'   => $this->__('Default Value'),
+			'css_class'       => $this->__('CSS Class'),
+			'html_arg'        => $this->__('HTML Arguments'),
+			'apply'           => $this->__('Apply'),
+			'cancel'          => $this->__('Cancel'),
+			'file_extensions' => $this->__('File Extensions Allowed'),
+			'max_file_size'   => $this->__('Max file size in bytes'),
+			'quantity'        => $this->__('Quantity'),
+			'itemLabel'       => $this->__('Item Label'),
+			'itemValue'       => $this->__('Item Value'),
+			'checked'         => $this->__('Checked'),
+			'selected'        => $this->__('Selected'),
+			'cannotChangeQuantity' => $this->__('Cannot change quantity. Please remove unnecessary items.'),
+			'removeItem'           => $this->__('Do you really want to remove this item?'),
+			'removeField'          => $this->__('Do you really want to remove this field?'),
+			'onlyOneItem'          => $this->__('Cannot delete this item. Field should contain at least one item.'),
+			'minRequired'          => $this->__('Minimum Required'),
+			'size'                 => $this->__('Size'),
+			'alikon_mod'           => $this->__('Alikon mod'),
+			'captcha_form'         => $this->__('Captcha form'),
+			'secur_image'          => $this->__('SecurImage'),
+			'name'                 => $this->__('Name'),
+			'noteNameDb'           => $this->__('This name will be used for saving field value in database.'),
+			'noteHtmlArgs'         => $this->__('Don\'t use name attribute here. It is in the field below.'),
+			'noteFileSize'         => $this->__('in bytes'),
+			'noteFileExt'          => $this->__('example: png, jpg, jpeg, gif'),
+			'cannotResizeTable'    => $this->__('Cannot resize table. Please remove or move bordered fields.'),
+			'nameUsed'             => $this->__('Entered name is used. Please enter other name.'),
+			'valueUsed'            => $this->__('Entered value is used. Please enter other value.'),
+			'captchaNote'          => $this->__('Please, enter the text shown in the image into the field below'),
+			'noteMaxCols'          => $this->__('maximum: 35'),
+			'minRequiredCheckboxes' => $this->__('Min required should be equal or less than quantity of checkboxes'),
+			'onlyOneItemChecked'    => $this->__('Only one item can be checked at the same time'),
+			'selectDefaultField'    => $this->__('--select default field--'),
+			'date'                  => $this->__('Date'),
+			'zip'                   => $this->__('Zip Code'),
+			'resetForm'             => $this->__('Are you sure want to reset the form? This will discard all changes you have made.'),
+		);
+	?>
+	var fieldManager = new Itoris.FieldManager(
+			<?php echo $form->getSections() ?>,
+			<?php echo Mage::helper('itoris_regfields/field')->getFieldTypesJson() ?>,
+			<?php echo Zend_Json::encode($translates) ?>,
+			<?php echo Mage::helper('itoris_regfields/field')->getValidationTypesJson() ?>,
+			<?php echo Mage::helper('itoris_regfields/field')->getCaptchaTypesJson() ?>,
+			<?php echo Zend_Json::encode(Mage::helper('itoris_regfields/field')->getAdditionalDefaultFields()) ?>,
+			'<?php echo Mage::getBaseUrl('skin') ?>',
+			<?php echo $form->getDefaultSections() ?>
+	);
+</script>

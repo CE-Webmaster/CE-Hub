@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @package Mageplace_Hideprice
+ */
+-->
+
+<config>
+    <modules>
+        <Mageplace_Hideprice>
+            <version>1.9.8</version>
+        </Mageplace_Hideprice>
+    </modules>
+
+    <global>
+        <resources>
+            <hideprice_setup>
+                <setup>
+                    <module>Mageplace_Hideprice</module>
+                    <class>Mageplace_Hideprice_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </hideprice_setup>
+            <hideprice_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </hideprice_write>
+            <hideprice_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </hideprice_read>
+        </resources>
+
+        <helpers>
+            <hideprice>
+                <class>Mageplace_Hideprice_Helper</class>
+            </hideprice>
+        </helpers>
+
+        <blocks>
+            <mageplace_hideprice>
+                <class>Mageplace_Hideprice_Block</class>
+            </mageplace_hideprice>
+
+        </blocks>
+
+        <models>
+            <mageplace_hideprice>
+                <class>Mageplace_Hideprice_Model</class>
+                <resourceModel>hideprice_resource_mysql4</resourceModel>
+            </mageplace_hideprice>
+            <hideprice_resource_mysql4>
+                <class>Mageplace_Hideprice_Model_Mysql4</class>
+                <entities>
+                    <hideprice>
+                        <table>hideprice_table</table>
+                    </hideprice>
+                    <hideprice_store>
+                        <table>hideprice_store_table</table>
+                    </hideprice_store>
+                </entities>
+            </hideprice_resource_mysql4>
+        </models>
+
+        <events>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <mageplace_hideprice>
+                        <type>singelton</type>
+                        <class>mageplace_hideprice/observer</class>
+                        <method>processCoreBlockAbstractToHtmlAfter</method>
+                    </mageplace_hideprice>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <hideprice before="Mage_Adminhtml">Mageplace_Hideprice_Adminhtml</hideprice>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <hide_price>
+                                            <title>Hide Price</title>
+                                        </hide_price>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <menu>
+            <catalog>
+                <children>
+                    <hideprice translate="title" module="hideprice">
+                        <title>Hideprice</title>
+                        <sort_order>1000</sort_order>
+                        <children>
+                            <category translate="title" module="hideprice">
+                                <title>Categories Settings</title>
+                                <action>adminhtml/hideprice/category</action>
+                            </category>
+                        </children>
+                        <children>
+                            <product translate="title" module="hideprice">
+                                <title>Products Settings</title>
+                                <action>adminhtml/hideprice/product</action>
+                            </product>
+                        </children>
+                        <children>
+                            <config translate="title" module="hideprice">
+                                <title>Configuration</title>
+                                <action>adminhtml/system_config/edit/section/hide_price</action>
+                            </config>
+                        </children>
+                    </hideprice>
+                </children>
+            </catalog>
+        </menu>
+
+        <layout>
+            <updates>
+                <mageplace_hideprice>
+                    <file>mageplace/hideprice.xml</file>
+                </mageplace_hideprice>
+            </updates>
+        </layout>
+
+        <events>
+            <catalog_product_save_after>
+                <observers>
+                    <hideprice_save_product_data>
+                        <type>singleton</type>
+                        <class>mageplace_hideprice/observer_product</class>
+                        <method>saveTabData</method>
+                    </hideprice_save_product_data>
+                </observers>
+            </catalog_product_save_after>
+
+            <adminhtml_catalog_category_tabs>
+                <observers>
+                    <hideprice_add_category_tab>
+                        <type>singleton</type>
+                        <class>mageplace_hideprice/observer_category</class>
+                        <method>addTab</method>
+                    </hideprice_add_category_tab>
+                </observers>
+            </adminhtml_catalog_category_tabs>
+
+            <catalog_category_save_after>
+                <observers>
+                    <hideprice_save_category_data>
+                        <type>singleton</type>
+                        <class>mageplace_hideprice/observer_category</class>
+                        <method>saveTabData</method>
+                    </hideprice_save_category_data>
+                </observers>
+            </catalog_category_save_after>
+        </events>
+    </adminhtml>
+
+    <frontend>
+        <layout>
+            <updates>
+                <mageplace_hideprice>
+                    <file>hideprice.xml</file>
+                </mageplace_hideprice>
+            </updates>
+        </layout>
+    </frontend>
+
+    <default>
+        <hide_price>
+            <options>
+                <text_message>Contact Us</text_message>
+                <text_message_group>You can't see the price in this customer group</text_message_group>
+                <text_message_category>You can't see the price in this category</text_message_category>
+                <text_message_product>You can't see the price this product</text_message_product>
+                <customer_group_enable>1</customer_group_enable>
+                <choose_customer_groups>1</choose_customer_groups>
+                <category_enable>1</category_enable>
+                <product_enable>1</product_enable>
+            </options>
+            <filters>
+                <price>1</price>
+                <add_to_cart>1</add_to_cart>
+                <qty>1</qty>
+                <add_to_compare>1</add_to_compare>
+                <add_to_wishlist>1</add_to_wishlist>
+            </filters>
+            <selectors>
+                <price><![CDATA[div.price-box]]></price>
+                <product_page_price><![CDATA[.product-shop div.price-box]]></product_page_price>
+                <bundle_price><![CDATA[span.price-notice]]></bundle_price>
+                <product_link><![CDATA[.product-name > a]]></product_link>
+                <add_to_cart><![CDATA[button.btn-cart]]></add_to_cart>
+                <add_to_cart_link><![CDATA[a.link-cart]]></add_to_cart_link>
+                <qty_label><![CDATA[label[for="qty"]]]></qty_label>
+                <qty><![CDATA[input.qty]]></qty>
+                <qty_bundle><![CDATA[span.qty-holder]]></qty_bundle>
+                <add_to_compare><![CDATA[a.link-compare]]></add_to_compare>
+                <add_to_wishlist><![CDATA[a.link-wishlist]]></add_to_wishlist>
+            </selectors>
+            <blocks>
+                <types><![CDATA[catalog/product_list;
+catalog/product_view;
+catalog/product_list_related;
+catalog/product_list_upsell;
+catalog/product_popular;
+wishlist/customer_sidebar;
+wishlist/customer_wishlist_items;
+tag/customer_view;]]></types>
+            </blocks>
+
+            <advanced>
+                <processor>zendquery</processor>
+            </advanced>
+        </hide_price>
+    </default>
+</config>

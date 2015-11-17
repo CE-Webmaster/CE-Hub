@@ -1,0 +1,79 @@
+li.sub-levels {
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("images/treeview-default-line.gif");
+    background-origin: padding-box;
+    background-position: 0 3px;
+    background-repeat: no-repeat;
+    background-size: 18px auto;
+    padding-left: 18px;
+    position: relative;
+}
+li.last-element {
+	background-position: 0 -1982px;
+}
+button.sub-levels {
+	background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url("images/plusminus.png");
+    background-origin: padding-box;
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+    background-size: 17px auto;
+    border: medium none;
+    float: left;
+    height: 22px;
+    margin-right: 5px;
+    margin-top: 2px;
+    padding: 0;
+    text-indent: -1000px;
+    width: 17px;
+    cursor: pointer;
+}
+button.no-child {
+	background: none repeat scroll 0 0 transparent;
+    margin-right: 3px;
+    width: 0;
+    cursor: none;
+}
+button.sub-levels::-moz-focus-inner {
+  border: 0;
+}
+.open_level1 {
+	/*background: none !important;*/
+}
+#product-categories li a {
+	min-width: 200px;
+	height: 20px;
+	display: inline-block;
+	margin-top: 5px;
+}
+button.non-active {
+	background-position: 0 -19px;
+}
+button.active {
+	background-position: 0 5px;
+}
+ul.level1 {
+	position: relative;
+}
+input.cats {
+	/*position: absolute;
+    right: 0;*/
+    width: 30px;
+}
+.input-give {
+	/*display: inline;
+	text-align: right;*/
+	display: inline;
+    margin-top: 1px;
+    position: absolute;
+    right: 20px;
+    text-align: right;
+}
+#product-categories {
+	 width: 300px;
+	 min-height: 340px;
+}

@@ -1,0 +1,90 @@
+ <script type="text/javascript">
+	 jQuery.noConflict();  
+	 jQuery(document).ready(function()
+	 {
+	  jQuery(".youtube").colorbox({iframe:true, innerWidth:
+	  <?php echo $this->getFramewidth();?>, innerHeight:<?php echo $this->getFrameheight();?>});
+					
+	});
+	</script>
+	
+<?php 
+    
+   $frameWidth   =  $this->getFramewidth();
+   $frameHeight  =  $this->getFrameheight(); 
+   $collection   =  $this->getCollection(); 
+   $divHeight    =  $this->getImageheight() +50;
+   
+?>
+<style >
+#foo { overflow-y: hidden; }
+.bar { background: width: <?php echo $this->getImagewidth();?>px; height:<?php echo  $divHeight;?>px; float: left; margin: 1em; 
+                       background: url('<?php echo Mage::getBaseUrl('js')?>videogallery/css/images/playbutton.jpg') center center no-repeat; }
+.video-thumb { filter: alpha(opacity =70); opacity: .7; }
+.sorter {display:none;}
+.vid-title{width: 200px}
+</style>
+
+<div class="breadcrumbs">
+    <ul>
+           <li class="home">
+               <a title="Go to Home Page" href="<?php echo $this->getBaseUrl();?>">Home</a>
+               <span>> </span>
+            </li> 
+		     <li class="home">
+                  <a title="Video Gallery" href="<?php echo $this->getGalleryUrl();?>">Video Gallery</a>
+                  <span>> </span>
+             </li>
+			 
+			 <li class="home"> <?php echo $this->getCategoryName();?>  </li>
+                   
+     </ul>
+</div>
+<div id="foo">
+<?php if($collection->getSize())
+      { 
+        $i=0; 
+       foreach($collection as $_obj)
+	   { 
+	     if($_obj->getStatus()==1)
+		  {
+		    $vidID = $_obj->getProductname();;
+            $url = "http://gdata.youtube.com/feeds/api/videos/". $vidID;
+            $doc = new DOMDocument;
+            $doc->load($url);
+            $vtitle = $doc->getElementsByTagName("title")->item(0)->nodeValue;
+		   
+	      ?>
+       
+		<div class="bar">
+         <a class='youtube' href="https://www.youtube.com/embed/<?php echo $vidID;?>?rel=0&wmode=transparent&autoplay=1" 
+		 	title="<?php echo $vtitle;?>">
+	
+						
+		<img class="video-thumb" src="https://img.youtube.com/vi/<?php echo $vidID;?>/0.jpg" 
+			height="<?php echo $this->getImageheight();?>"
+			width="<?php echo $this->getImagewidth();?>" 
+			alt="<?php echo $vtitle;?>"
+            title="<?php echo $vtitle;?>" />
+            <div class="vid-title"><?php echo $vtitle;?></div>
+            	
+			</a>
+			<?php echo $this->getDescription()?>
+			<?php 
+			?>
+		</div>	
+       
+	   <?php }  // if status loop
+	   }  // foreach loop
+	   
+  ?>	
+
+</div>
+
+<div class="toolbarPadding">
+<?php echo $this->getToolbarHtml(); ?>
+</div>
+<?php } else {?>
+
+Sorry,There is no video in this category.</div>
+<?php }?>

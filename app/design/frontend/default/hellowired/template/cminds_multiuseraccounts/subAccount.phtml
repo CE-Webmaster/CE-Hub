@@ -1,0 +1,41 @@
+<?php
+$subAccounts = $this->getSubAccounts();
+/**
+ * @var $this Cminds_MultiUserAccounts_Block_SubAccount
+ */
+?>
+<div class="dashboard">
+    <div class="page-title">
+        <h1><?php echo $this->__('Manage Users') ?></h1>
+    </div>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <div class="box-account box-info">
+        <div class="box-head">
+            <h2><?php echo $this->__('Users') ?></h2>
+            <a href="<?php echo $this->getAddSubAccountUrl(); ?>">Add User</a>
+        </div>
+        <div class="box-content">
+            <?php if (count($subAccounts)): ?>
+                <ul>
+                    <?php foreach ($subAccounts as $subAccount): ?>
+                        <li style="text-align: right;">
+                            <div style="float:left">
+                                <label style="font-weight: bold;"><?php echo $this->__('Email') ?>
+                                    : </label><?php echo $this->escapeHtml($subAccount->getEmail()) ?> -
+                                <label style="font-weight: bold;"><?php echo $this->__('Name') ?>
+                                    : </label><?php echo $this->escapeHtml($subAccount->getName()) ?> -
+                                <label style="font-weight: bold;"><?php echo $this->__('Permission') ?>
+                                    : </label><?php echo $this->escapeHtml($subAccount->getPermissionLabel()) ?>
+                            </div>
+                            <a href="<?php echo $this->getEditSubAccountUrl($subAccount->getId()); ?>"><?php echo $this->__('Edit') ?></a> -
+                            <a href="<?php echo $this->getDeleteSubAccountUrl($subAccount->getId()); ?>"><?php echo $this->__('Delete') ?></a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+
+            <?php else: ?>
+                <?php echo $this->__('No User Found') ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<layout>
+   <default>
+   <remove name="left.permanent.callout" />  <!--the dog-->
+   <remove name="right.permanent.callout" />  <!--back to school-->
+   <!--<remove name="catalog.compare.sidebar" />  product compare-->
+   <remove name="paypal.partner.right.logo" />  <!--paypal logo-->
+    <!--<remove name="cart_sidebar" />cart sidebar-->
+   <!--<remove name="left.reports.product.viewed" /> recently viewed prod-->
+  <!-- <remove name="right.reports.product.viewed" /> recently viewed prod-->
+   <!--<remove name="right.reports.product.compared" /> recently compared prod-->
+</default>
+</layout>

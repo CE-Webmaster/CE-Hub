@@ -1,0 +1,3 @@
+<?php /* added automatically by conflict fixing tool */ if (Mage::getConfig()->getNode('modules/Evince_OrderComment/active')) {
+                class Magedev_Ordermanager_Model_Resource_Order_Grid_Collection_Amasty_Pure extends Evince_OrderComment_Model_Mysql4_Order_Grid_Collection {}
+            } else { class Magedev_Ordermanager_Model_Resource_Order_Grid_Collection_Amasty_Pure extends Mage_Sales_Model_Resource_Order_Grid_Collection {} } ?>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Me
+ * @package   Me_Econtacts
+ * @author    Attila Sági <sagi.attila@magevolve.com>
+ * @copyright 2015 Magevolve Ltd. (http://magevolve.com)
+ * @license   http://magevolve.com/terms-and-conditions Magevolve Ltd. License
+ * @link      http://magevolve.com
+ */
+-->
+<layout>
+    <adminhtml_econtacts_index>
+        <reference name="content">
+            <block type="me_econtacts/adminhtml_econtacts" name="econtacts" />
+        </reference>
+    </adminhtml_econtacts_index>
+
+    <adminhtml_econtacts_grid>
+        <block type="me_econtacts/adminhtml_econtacts_grid" name="root"/>
+    </adminhtml_econtacts_grid>
+
+    <adminhtml_econtacts_edit>
+        <update handle="editor"/>
+        <reference name="content">
+            <block type="me_econtacts/adminhtml_econtacts_edit" name="econtacts_edit" />
+        </reference>
+        <reference name="left">
+            <block type="me_econtacts/adminhtml_econtacts_edit_tabs" name="econtacts_edit_tabs">
+                <block type="me_econtacts/adminhtml_econtacts_edit_tab_main" name="econtacts_edit_tab_main" />
+                <action method="addTab"><name>main_section</name><block>econtacts_edit_tab_main</block></action>
+            </block>
+        </reference>
+    </adminhtml_econtacts_edit>
+</layout>

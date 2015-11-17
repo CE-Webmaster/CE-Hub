@@ -1,0 +1,22 @@
+<?php
+$_categories=$this->getCurrentChildCategories();
+	foreach($categories as $_category):?>
+		<ul><li>
+		<a href="<?php echo $category->getURL()?>" title="<?php echo $this->htmlEscape($_cateogry->getName())?> ">
+		<img src="<?php echo $_category->getImageUrl()?>" width="100" alt="<?php echo $this->htmlEscape($_category->getName())?>"/></a>		
+        <ul class="custom-list">
+    	<?php $i=0; foreach ($_productCollection as $_product): ?>    
+         <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+         <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                
+         <?php if($_product->isSaleable()): ?>
+        <button type="button" title="<?php echo $this->__('Buy Now') ?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Buy Now') ?></span></span></button><?php echo $this->getPriceHtml($_product, true) ?>
+         <?php else: ?>
+         <?php endif; ?>
+         </li>
+        <?php endforeach ?>
+        </ul>
+</li>
+<?php
+	endforeach;
+?>

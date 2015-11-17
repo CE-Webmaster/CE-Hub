@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @package Mageplace_Hideprice
+ */
+-->
+<layout>
+    <adminhtml_catalog_product_edit>
+        <reference name="product_tabs">
+            <action method="addTab" ifconfig="hide_price/options/product_enable">
+                <name>hideprice</name>
+                <block>mageplace_hideprice/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_catalog_product_simple>
+        <reference name="product_tabs">
+            <action method="addTab" ifconfig="hide_price/options/product_enable">
+                <name>hideprice</name>
+                <block>mageplace_hideprice/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_simple>
+
+    <adminhtml_catalog_product_grouped>
+        <reference name="product_tabs">
+            <action method="addTab" ifconfig="hide_price/options/product_enable">
+                <name>hideprice</name>
+                <block>mageplace_hideprice/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_grouped>
+
+    <adminhtml_catalog_product_virtual>
+        <reference name="product_tabs">
+            <action method="addTab" ifconfig="hide_price/options/product_enable">
+                <name>hideprice</name>
+                <block>mageplace_hideprice/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_virtual>
+
+    <adminhtml_catalog_product_bundle>
+        <reference name="product_tabs">
+            <action method="addTab" ifconfig="hide_price/options/product_enable">
+                <name>hideprice</name>
+                <block>mageplace_hideprice/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_bundle>
+
+    <adminhtml_catalog_product_downloadable>
+        <reference name="product_tabs">
+            <action method="addTab" ifconfig="hide_price/options/product_enable">
+                <name>hideprice</name>
+                <block>mageplace_hideprice/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_downloadable>
+
+    <adminhtml_catalog_product_configurable>
+        <reference name="product_tabs">
+            <action method="addTab" ifconfig="hide_price/options/product_enable">
+                <name>hideprice</name>
+                <block>mageplace_hideprice/adminhtml_catalog_product_tab</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_configurable>
+
+    <adminhtml_hideprice_category>
+        <reference name="content">
+            <block type="mageplace_hideprice/adminhtml_catalog_category_edit" name="hideprice_category_edit"
+                   template="hideprice/catalog/category/edit.phtml"/>
+        </reference>
+    </adminhtml_hideprice_category>
+
+    <adminhtml_hideprice_product>
+        <reference name="content">
+            <block type="mageplace_hideprice/adminhtml_catalog_product_edit" name="hideprice_product_edit"
+                   template="hideprice/catalog/product/edit.phtml"/>
+        </reference>
+    </adminhtml_hideprice_product>
+
+</layout>

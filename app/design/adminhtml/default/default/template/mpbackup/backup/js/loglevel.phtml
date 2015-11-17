@@ -1,0 +1,27 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @package Mageplace_Backup
+ */
+
+/** @var Mageplace_Backup_Block_Adminhtml_Backup_Js_Loglevel $this */
+
+$_iterator = $this->getLogLevels();
+?>
+<script>
+    MP.Backup.LogLevels = {
+        <?php while($_iterator->valid()) : ?>
+        <?php $methodName = ucfirst(strtolower($_iterator->key())); ?>
+
+        get<?php echo $methodName; ?>: function (value) {
+            return '<?php echo $_iterator->current(); ?>';
+        },
+
+        is<?php echo $methodName; ?>: function (value) {
+            return (value + '').toUpperCase() == '<?php echo $_iterator->current(); ?>';
+        }<?php $_iterator->next(); if($_iterator->valid()) echo ","; ?>
+
+        <?php endwhile; ?>
+    };
+</script>

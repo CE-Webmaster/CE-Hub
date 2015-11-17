@@ -1,0 +1,62 @@
+<!--
+/**
+ * Aumento.io
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *
+ * @package     Aumento_PriceHide
+ * @copyright   Copyright (c) 2012 Aumentio.io (http://www.aumento.io)
+ * @license     http://www.gnu.org/licenses  GNU General Public License, version 3 (GPL-3.0)
+ */
+-->
+
+<!--
+Make sure you merge your template files with the below if need
+-->
+
+<layout version="0.1.0">
+	<catalog_category_default>
+		<reference name="content">
+			<reference name="product_list">
+				<action method="setTemplate"> <template>pricehide/product-list.phtml</template></action>
+			</reference> 
+		 </reference>
+	</catalog_category_default>
+
+	<catalog_product_view>
+		<reference name="product.info">
+			<reference name="product.info.addtocart">
+				<action method="setTemplate"> <template>pricehide/product-view-addtocart.phtml</template></action>
+			</reference> 
+		</reference>
+
+		<reference name="product.info">
+				<action method="setTemplate"> <template>pricehide/product-view.phtml</template></action>
+		</reference>
+
+	</catalog_product_view>
+
+	<catalog_product_compare_index>
+		<reference name="content">
+			<reference name="catalog.compare.list">
+				<action method="setTemplate"> <template>pricehide/product-compare-list.phtml</template></action>
+			</reference>
+		</reference>
+	</catalog_product_compare_index>
+
+</layout>
+

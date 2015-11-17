@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (https://www.amasty.com)
+ * @package Mageplace_Hideprice
+ */
+-->
+<layout version="0.1.0">
+    <default>
+	<reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/hideprice.css</name></action>
+        </reference>        
+    </default>        
+</layout>

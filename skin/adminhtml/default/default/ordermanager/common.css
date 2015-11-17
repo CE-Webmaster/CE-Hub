@@ -1,0 +1,50 @@
+
+.ui-multiselect{line-height:1.22em;}
+  	
+	/* multiselect styles */
+	.multiselect {
+		width: 460px;
+		height: 200px;
+	}
+	
+	#switcher {
+		margin-top: 20px;
+	}
+ 
+ 
+#grid_order_status_color li {
+ border: 1px solid #333333;
+    color: #000000;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    margin: 2px;
+    padding: 2px;
+    position: relative;
+	width:240px;
+}
+
+.setcolor_white
+	{  
+	color: #000000;
+    display: block;
+    font-weight: 900;
+    height: 24px;
+    line-height: 24px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 20px;
+    z-index: 1;
+}
+
+#grid_order_status_color
+{   border: 1px solid #333333;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 310px !important;
+}
+
+#grid_order_status_color a{float:right;margin-top:2px;}

@@ -1,0 +1,3 @@
+<?php /* added automatically by conflict fixing tool */ if (Mage::getConfig()->getNode('modules/Evince_OrderComment/active')) {
+                class Magedev_Ordermanager_Block_Adminhtml_Order_Grid_Amasty_Pure extends Evince_OrderComment_Block_Adminhtml_Sales_Order_Grid {}
+            } else { class Magedev_Ordermanager_Block_Adminhtml_Order_Grid_Amasty_Pure extends Evince_OrderComment_Block_Adminhtml_Sales_Order_Grid {} } ?>

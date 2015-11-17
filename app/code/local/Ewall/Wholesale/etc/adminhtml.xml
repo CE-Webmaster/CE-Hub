@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+			<wholesale module="wholesale">
+				<title>Wholesaleprice</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="wholesale">
+						<title>Manage Wholesale Price Rule</title>
+						<sort_order>0</sort_order>
+						<action>wholesale/adminhtml_wholesale</action>
+					</items>
+				</children>
+			</wholesale>
+		</menu>
+</config>

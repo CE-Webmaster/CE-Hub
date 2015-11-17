@@ -1,0 +1,100 @@
+<?php
+$product_id = $this->getRequest()->getParam('id');
+
+
+$ppsData = $this->getPpsData($product_id);
+
+if(count($ppsData) > 0)
+{
+    $allow_all = $ppsData[0]['allow_all'];
+    $specific_countries = explode(",", $ppsData[0]['specific_countries']);
+    $pps_price = $ppsData[0]['pps_price'];
+}
+else {
+    $allow_all = "";
+    $specific_countries = "";
+    $pps_price = "";
+}
+
+$countries = Mage::helper('pps')->getCountries();
+
+?>
+
+
+<style type="text/css">
+    
+.form-list td.value p.note {
+    width: auto;
+}
+</style>
+<div style="" id="product_info_tabs_group_17_content"><div class="entry-edit">
+    <div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Per Product Shipping Rate</h4>
+    
+</div>
+        <div id="group_fields17" class="fieldset fieldset-wide">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><label for="pps_price">Shipping Rate</label></td>
+                            <td class="value">
+                                <input type="text" class=" input-text" value="<?php echo $pps_price; ?>" name="pps_price" id="pps_price">
+                            </td>
+                            <td class="scope-label"><span class="nobr"></span></td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="label"><label for="allow_all">Ship to Applicable Countries</label></td>
+                            <td class="value">
+                                <select class=" select" name="allow_all" id="allow_all">
+                                    <option <?php if($allow_all == 0) echo 'selected="selected"'; ?> value="0">All Allowed Countries</option>
+                                    <option <?php if($allow_all == 1) echo 'selected="selected"'; ?> value="1">Specific Countries</option>
+                                </select>
+                            </td>
+                            <td class="scope-label"><span class="nobr"></span></td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="label"><label for="specificcountry">Ship to Specific Countries</label></td>
+                            <td class="value">
+                                <select multiple="multiple" size="10" class=" select multiselect" name="specific_countries[]" id="specificcountry">
+                                    <?php foreach($countries as $country){ ?>
+                                    <option <?php if(in_array($country['value'], $specific_countries)) echo 'selected="selected"'; ?>value="<?php echo $country['value']; ?>"><?php echo $country['label']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </td>
+                            <td class="scope-label"><span class="nobr"></span></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+Event.observe(window, "load", function () { 
+var allowval = $('allow_all').getValue();
+if(allowval == 0)
+{
+    $('specificcountry').disable();
+}
+
+$('allow_all').observe('change', respondToClick);
+});
+function respondToClick(event) {
+
+
+allowval = $('allow_all').getValue();
+if(allowval == 0)
+{
+    $('specificcountry').disable();
+}
+else {
+    $('specificcountry').enable();
+}
+}
+
+</script>

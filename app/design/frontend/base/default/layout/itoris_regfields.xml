@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<customer_account_create>
+		<reference name="content">
+			<remove name="smartlogin_registerwindow"/>
+		</reference>
+		<reference name="head">
+			<action method="addItem"><type>js_css</type><name>itoris/regfields/css/main.css</name></action>
+			<action method="addJs"><name>itoris/regfields/js/main.js</name></action>
+			<action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/></action>
+			<action method="addJs"><script>calendar/calendar.js</script></action>
+			<action method="addJs"><script>calendar/calendar-setup.js</script></action>
+		</reference>
+	</customer_account_create>
+	<customer_account_edit>
+		<reference name="head">
+			<action method="addItem"><type>js_css</type><name>itoris/regfields/css/main.css</name></action>
+			<action method="addJs"><name>itoris/regfields/js/main.js</name></action>
+			<action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/></action>
+			<action method="addJs"><script>calendar/calendar.js</script></action>
+			<action method="addJs"><script>calendar/calendar-setup.js</script></action>
+		</reference>
+	</customer_account_edit>
+	<checkout_onepage_index>
+		<reference name="head">
+			<action method="addItem"><type>js_css</type><name>itoris/regfields/css/checkout.css</name></action>
+		</reference>
+		<reference name="content">
+			<remove name="smartlogin_registerwindow"/>
+		</reference>
+	</checkout_onepage_index>
+	<quickcheckout_onepage_index>
+		<reference name="head">
+			<action method="addItem"><type>js_css</type><name>itoris/regfields/css/checkout.css</name></action>
+		</reference>
+		<reference name="content">
+			<remove name="smartlogin_registerwindow"/>
+		</reference>
+	</quickcheckout_onepage_index>
+</layout>

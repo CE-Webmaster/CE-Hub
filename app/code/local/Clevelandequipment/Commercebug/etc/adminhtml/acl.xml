@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<config><acl><resources><resource id="Clevelandequipment_Commercebug::admin"><resource id="Clevelandequipment_Commercebug::system"><resource id="Clevelandequipment_Commercebug::config"><resource id="Clevelandequipment_Commercebug::commercebug" title="Configuration for Advanced Debugger"/></resource></resource></resource></resources></acl></config>

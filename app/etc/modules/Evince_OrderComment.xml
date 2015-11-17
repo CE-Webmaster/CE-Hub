@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Evince
+ * @package     Evince_OrderComment
+ * @copyright   Copyright (c) 2015 Evince Development 
+ */
+-->
+<config>
+    <modules>
+        <Evince_OrderComment>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Checkout />
+                <Mage_Sales />
+            </depends>
+        </Evince_OrderComment>
+    </modules>
+</config>

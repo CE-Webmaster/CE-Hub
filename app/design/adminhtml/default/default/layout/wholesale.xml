@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <wholesale_adminhtml_wholesale_index>
+        <reference name="content">
+            <block type="wholesale/adminhtml_wholesale" name="wholesale" />
+        </reference>
+    </wholesale_adminhtml_wholesale_index>
+    <wholesale_adminhtml_wholesale_edit>
+		<reference name="head">
+			<action method="addJs"><script>wholesale/jquery1.8.1.js</script></action>
+			<action method="addCss"><name>wholesale/wholesale.css</name></action>
+		</reference>
+    </wholesale_adminhtml_wholesale_edit>
+    <wholesale_adminhtml_wholesale_product>
+       <block type="core/text_list" name="root" output="toHtml">
+           <block type="wholesale/adminhtml_wholesale_edit_tab_products" name="product.grid"/>
+           <block type="adminhtml/widget_grid_serializer" name="grid_serializer">
+               <reference name="grid_serializer">
+                   <action method="initSerializerBlock">
+                       <grid_block_name>product.grid</grid_block_name>
+                       <data_callback>getSelectedProducts</data_callback>
+                       <hidden_input_name>links[products]</hidden_input_name>
+                       <reload_param_name>products</reload_param_name>
+                   </action>
+                   <action method="addColumnInputName">
+                       <input_name>discount_product</input_name>
+                   </action>
+               </reference>
+           </block>
+       </block>
+   </wholesale_adminhtml_wholesale_product>
+   <wholesale_adminhtml_wholesale_productgrid>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="wholesale/adminhtml_wholesale_edit_tab_products" name="product.grid"/>
+		</block>
+	</wholesale_adminhtml_wholesale_productgrid>
+</layout>

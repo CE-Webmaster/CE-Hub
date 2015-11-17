@@ -1,0 +1,122 @@
+/**
+ * Developer: Rene Voorberg
+ * Team site: http://cmsideas.net/
+ * Support: http://support.cmsideas.net/ 
+ * 
+*/
+i.glace,
+a.popupplusAction,
+a.popup_back,
+.adminhtml-popupplus-template td.a-left,
+.adminhtml-productlabels-index #anchor-content button,
+.adminhtml-productlabels-index #anchor-content label,
+.adminhtml-productlabels-index #anchor-content h3,
+.adminhtml-productlabels-index #anchor-content h4,
+.adminhtml-productlabels-index #anchor-content input,
+.adminhtml-productlabels-index #anchor-content li a,
+
+.adminhtml-csslabel-edit #anchor-content button,
+.adminhtml-csslabel-edit #anchor-content label,
+.adminhtml-csslabel-edit #anchor-content h3,
+.adminhtml-csslabel-edit #anchor-content h4,
+.adminhtml-csslabel-edit #anchor-content input,
+.adminhtml-csslabel-edit #anchor-content li a,
+
+.adminhtml-productlabels-edit #anchor-content button,
+.adminhtml-productlabels-edit #anchor-content label,
+.adminhtml-productlabels-edit #anchor-content h3,
+.adminhtml-productlabels-edit #anchor-content h4,
+.adminhtml-productlabels-edit #anchor-content input,
+.adminhtml-productlabels-edit #anchor-content li a,
+.adminhtml-productlabels-edit #anchor-content p
+
+{
+	font-family: 'Special Elite', cursive !important;
+	letter-spacing: 1px;
+}
+
+.adminhtml-popupplus-template td.a-left
+{
+	font-size:18px;
+}
+
+#logo_cmsideas a
+{
+	display:inline-block;
+	width:100%;
+	background:url("logo_cmsideas.png") no-repeat scroll center top #FFFFFF;
+	height:85px;
+}
+
+.adminhtml-productlabels-index #anchor-content button.add span,
+.adminhtml-productlabels-index #anchor-content button.save span,
+.adminhtml-productlabels-index #anchor-content button.add span,
+.adminhtml-productlabels-index #anchor-content button.delete span,
+
+.adminhtml-csslabel-edit #anchor-content button.add span,
+.adminhtml-csslabel-edit #anchor-content button.save span,
+.adminhtml-csslabel-edit #anchor-content button.add span,
+.adminhtml-csslabel-edit #anchor-content button.delete span,
+
+.adminhtml-productlabels-edit #anchor-content button.add span,
+.adminhtml-productlabels-edit #anchor-content button.save span,
+.adminhtml-productlabels-edit #anchor-content button.add span,
+.adminhtml-productlabels-edit #anchor-content button.delete span
+{
+	background-image:none !important;
+	padding-left:0px;
+}
+
+a.popupplusAction,
+a.popup_back,
+#productlabelsGrid_table td.last a
+{
+	background-color:#FFAC47;
+    border-color: #ED6502 #A04300 #A04300 #ED6502;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font: bold 12px arial,helvetica,sans-serif;
+    padding: 1px 7px 2px;
+    text-align: center !important;
+    white-space: nowrap;
+    display:inline-block;
+    min-width:73px;
+    text-decoration: none;
+    margin:5px 0px;
+}
+a.popup_back
+{
+	float:right;
+}
+
+
+.adminhtml-popupplus-edit p.nm
+{
+	display:none;
+}
+
+.adminhtml-popupplus-edit td.value:hover p.nm
+{
+	display:block;
+	position: relative;
+}
+
+.adminhtml-popupplus-edit td.value:hover i.glace
+{
+	background-color: #EB5E00;
+    max-width: 200px;
+    padding: 10px;
+    position: absolute;
+    right: -200px;
+    top: -20px;
+    z-index: 99999;
+    color:#FFFFFF;
+    font-size:14px;
+}
+
+.adminhtml-productlabels-edit td.value:hover i.glace a
+{
+	color:#ffffff;
+}
